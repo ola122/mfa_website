@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Multi-Factor Authentication{% endblock %}
+{% block content %}
+    <h1>Multi-Factor Authentication</h1>
+    <p>Scan the QR code below with your authenticator app:</p>
+    <img src="data:image/png;base64,{{ img_data }}" alt="QR Code">
+    <form action="/mfa" method="POST">
+        <div class="form-group">
+            <label for="otp">Enter the code from your authenticator app:</label>
+            <input type="text" id="otp" name="otp" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Verify</button>
+    </form>
+{% endblock %}
